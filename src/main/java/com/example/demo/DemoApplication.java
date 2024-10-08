@@ -1,3 +1,5 @@
+// 실습 0-1: Unchecked Exception -1) Runtime 시 발생하는 Exception
+
 package com.example.demo;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
