@@ -1,11 +1,12 @@
-// 실습 0-1: Unchecked Exception -1) Runtime 시 발생하는 Exception
 
 package com.example.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.sql.SQLException;
 
+@Slf4j
 @SpringBootApplication
 public class DemoApplication {
     static void connect(String username, String password) {
@@ -16,9 +17,7 @@ public class DemoApplication {
                 throw new SQLException("데이터베이스 접속 실패");
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getStackTrace()[0]);
-            System.out.println(e.getStackTrace()[1]);
+            log.error(String.format("데이터베이스 계정 불일치 - username: %s, password: %s", username, password), e);
         }
     }
 
@@ -27,5 +26,3 @@ public class DemoApplication {
         connect("user", "9876");
     }
 }
-
-
