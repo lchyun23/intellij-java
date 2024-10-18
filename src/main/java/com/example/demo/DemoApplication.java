@@ -18,6 +18,9 @@ public class DemoApplication {
             throw new UsernameException();
         }
         if (!StringUtils.hasLength(password)) {
+            throw new PasswordException();
+        }
+        if (!StringUtils.hasLength(password)) {
             throw new DatabaseException();
         }
         log.info("- Database is connected successfully.");
